@@ -3,7 +3,7 @@
     <div>
       <logo></logo>
       <h1 class="title">
-        nuxt-now
+        nuxt-express-now
       </h1>
       <h2 class="subtitle">
         You are on {{ env }}

@@ -1,4 +1,4 @@
-# nuxt-now
+# nuxt-express-now
 
 > My brilliant Nuxt.js project
 
