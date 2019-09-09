@@ -1,11 +1,10 @@
 {
   "version": 2,
+  "name": "nuxt-now",
   "github": {
     "autoAlias": false
   },
-  "alias": [
-    "nuxt-now-dev"
-  ],
+  "alias": "nuxt-now-dev",
   "builds": [
     {
       "src": "nuxt.config.js",
