@@ -94,3 +94,4 @@ sw.*
 
 # backpack build file
 build
+build/*
