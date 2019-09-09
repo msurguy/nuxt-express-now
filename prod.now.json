@@ -12,7 +12,8 @@
       "config": {
         "serverFiles": [
           "./server/**/*",
-          "./constants.js"
+          "./constants.js",
+          "./package.json"
         ]
       }
     }
