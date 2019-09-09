@@ -90,5 +90,7 @@ sw.*
 # Vim swap files
 *.swp
 
+.DS_Store
+
 # backpack build file
 build
