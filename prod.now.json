@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "github": {
+    "autoAlias": false
+  },
+  "alias": [
+    "nuxt-now-prod"
+  ],
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {
+        "serverFiles": [
+          "./server/**/*",
+          "./constants.js"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_nuxt/.+",
+      "headers": {
+        "cache-control": "s-maxage=31536000"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "API_URL": "http://prod-api.mywebsite.com",
+      "BASIC_AUTH": "disabled"
+    }
+  },
+  "env": {
+    "NODE_ENV": "production",
+    "API_URL": "http://prod-api.mywebsite.com",
+    "BASIC_AUTH": "disabled"
+  }
+}

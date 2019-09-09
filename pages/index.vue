@@ -1,26 +1,24 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <logo></logo>
       <h1 class="title">
         nuxt-now
       </h1>
       <h2 class="subtitle">
-        My brilliant Nuxt.js project
+        You are on {{ env }}
       </h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
           target="_blank"
-          class="button--green"
-        >
+          class="button--green">
           Documentation
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
-          class="button--grey"
-        >
+          class="button--grey">
           GitHub
         </a>
       </div>
@@ -34,6 +32,11 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data () {
+    return {
+      env: process.env.NODE_ENV
+    }
   }
 }
 </script>

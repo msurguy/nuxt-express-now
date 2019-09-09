@@ -1,0 +1,17 @@
+.fade-page-enter-active, .fade-page-leave-active {
+  transition: opacity $timing-moderate ease;
+  opacity: 1;
+}
+
+.fade-page-enter, .fade-page-leave-to {
+  opacity: 0;
+}
+
+.fade-next-page-enter-active {
+  transition: opacity $timing-moderate ease $timing-moderate;
+  opacity: 1;
+}
+
+.fade-next-page-enter {
+  opacity: 0;
+}

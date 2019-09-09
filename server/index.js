@@ -1,34 +1,30 @@
 const express = require('express')
-const consola = require('consola')
-const { Nuxt, Builder } = require('nuxt')
+const bodyParser = require('body-parser')
+const basicAuth = require('express-basic-auth')
+
+if (!process.env.NODE_ENV === 'production') require('dotenv').config()
+
+// Load in specific routes
+const apiRoutes = require('./api')
+
+// Configure our server
 const app = express()
 
-// Import and Set Nuxt.js options
-const config = require('../nuxt.config.js')
-config.dev = process.env.NODE_ENV !== 'production'
-
-async function start () {
-  // Init Nuxt.js
-  const nuxt = new Nuxt(config)
-
-  const { host, port } = nuxt.options.server
-
-  // Build only in dev mode
-  if (config.dev) {
-    const builder = new Builder(nuxt)
-    await builder.build()
-  } else {
-    await nuxt.ready()
-  }
-
-  // Give nuxt middleware to express
-  app.use(nuxt.render)
-
-  // Listen the server
-  app.listen(port, host)
-  consola.ready({
-    message: `Server listening on http://${host}:${port}`,
-    badge: true
-  })
+// Enable Basic Auth on server routes
+if (process.env.BASIC_AUTH === 'enabled') {
+  app.use(basicAuth({
+    challenge: true,
+    users: { dev: 'password' }
+  }))
 }
-start()
+
+app.use(bodyParser.json())
+// Define server routes
+app.use(apiRoutes)
+
+export default [
+  {
+    path: '/api',
+    handler: app
+  }
+]

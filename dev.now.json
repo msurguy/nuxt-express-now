@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "github": {
+    "autoAlias": false
+  },
+  "alias": [
+    "nuxt-now-dev"
+  ],
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder",
+      "config": {
+        "serverFiles": [
+          "./server/**/*",
+          "./constants.js"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_nuxt/.+",
+      "headers": {
+        "cache-control": "s-maxage=31536000"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "build": {
+    "env": {
+      "NODE_ENV": "dev",
+      "API_URL": "http://dev-api.mywebsite.com",
+      "BASIC_AUTH": "enabled"
+    }
+  },
+  "env": {
+    "NODE_ENV": "dev",
+    "API_URL": "http://dev-api.mywebsite.com",
+    "BASIC_AUTH": "enabled"
+  }
+}

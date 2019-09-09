@@ -1,3 +1,7 @@
+import serverRoutes from './server'
+
+// When in local development, get the environment config from .env file
+if (process.env.NODE_ENV === 'development') require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -23,7 +27,21 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/reset.css'
   ],
+  styleResources: {
+    scss: [
+      '~/assets/styles.scss'
+    ]
+  },
+  /*
+  ** Basic Authentication for dev instances
+  */
+  basic: {
+    name: 'dev',
+    pass: 'password',
+    enabled: process.env.BASIC_AUTH === 'enabled'
+  },
   /*
   ** Plugins to load before mounting the App
   */
@@ -41,7 +59,12 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
+    'nuxt-basic-auth-module'
+  ],
+  serverMiddleware: [
+    ...serverRoutes
   ],
   /*
   ** Axios module configuration
@@ -57,6 +80,19 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && process.client) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
     }
+  },
+  env: {
+    NODE_ENV: process.env.NODE_ENV,
+    API_URL: process.env.API_URL
   }
 }
