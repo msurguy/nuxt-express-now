@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: release
-      uses: actions/zeit-now@master
+      uses: msurguy/zeit-now@master
       env:
         ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
       with:
