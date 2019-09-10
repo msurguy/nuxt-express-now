@@ -2,21 +2,15 @@
   <div class="container">
     <div>
       <logo></logo>
-      <h1 class="title">
+      <h1>
         nuxt-express-now
       </h1>
-      <h2 class="subtitle">
+      <h2>
         You are on {{ app_env }}
       </h2>
       <h3>NODE ENV: {{ node_env }}</h3>
       <h3>API URL: {{ apiURL }}</h3>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">
-          Documentation
-        </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
@@ -53,24 +47,6 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
 }
 
 .links {
