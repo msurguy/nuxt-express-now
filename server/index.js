@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const basicAuth = require('express-basic-auth')
 
-if (!process.env.NODE_ENV === 'production') require('dotenv').config()
+if (process.env.NODE_ENV === 'development') require('dotenv').config()
 
 // Load in specific routes
 const apiRoutes = require('./api')
