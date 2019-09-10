@@ -1,0 +1,17 @@
+on:
+  push:
+    tags:
+      - staging-*
+
+name: Deploy on Now
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: release
+      uses: actions/zeit-now@master
+      env:
+        ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+      with:
+        args: "--local-config=./staging.now.json"
