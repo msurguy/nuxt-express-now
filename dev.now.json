@@ -8,7 +8,7 @@
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder",
+      "use": "nuxt/now-builder#fix-development-node-env",
       "config": {
         "serverFiles": [
           "./server/**/*",
