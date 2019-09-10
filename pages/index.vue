@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         You are on {{ env }}
       </h2>
+      <h3>API URL: {{ apiURL }}</h3>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -35,7 +36,8 @@ export default {
   },
   data () {
     return {
-      env: process.env.NODE_ENV
+      env: process.env.NODE_ENV,
+      apiURL: process.env.API_URL
     }
   }
 }
