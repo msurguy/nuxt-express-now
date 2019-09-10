@@ -6,8 +6,9 @@
         nuxt-express-now
       </h1>
       <h2 class="subtitle">
-        You are on {{ env }}
+        You are on {{ app_env }}
       </h2>
+      <h3>NODE ENV: {{ node_env }}</h3>
       <h3>API URL: {{ apiURL }}</h3>
       <div class="links">
         <a
@@ -36,7 +37,8 @@ export default {
   },
   data () {
     return {
-      env: process.env.NODE_ENV,
+      node_env: process.env.NODE_ENV,
+      app_env: process.env.APP_ENV,
       apiURL: process.env.API_URL
     }
   }
