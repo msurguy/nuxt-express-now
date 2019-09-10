@@ -31,13 +31,15 @@
   ],
   "build": {
     "env": {
-      "NODE_ENV": "staging",
+      "NODE_ENV": "production",
+      "APP_ENV": "staging",
       "API_URL": "http://staging-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
   },
   "env": {
-    "NODE_ENV": "staging",
+    "NODE_ENV": "production",
+    "APP_ENV": "staging",
     "API_URL": "http://staging-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }

@@ -1,5 +1,7 @@
 import serverRoutes from './server'
 
+console.log(`NODE_ENV: ${process.env.NODE_ENV}, APP_ENV: ${process.env.APP_ENV}`)
+
 // When in local development, get the environment config from .env file
 if (process.env.NODE_ENV === 'development') require('dotenv').config()
 
@@ -41,6 +43,11 @@ module.exports = {
     name: 'dev',
     pass: 'password',
     enabled: process.env.BASIC_AUTH === 'enabled'
+  },
+  env: {
+    NODE_ENV: process.env.NODE_ENV,
+    APP_ENV: process.env.APP_ENV,
+    API_URL: process.env.API_URL
   },
   /*
   ** Plugins to load before mounting the App
@@ -90,9 +97,5 @@ module.exports = {
         })
       }
     }
-  },
-  env: {
-    NODE_ENV: process.env.NODE_ENV,
-    API_URL: process.env.API_URL
   }
 }

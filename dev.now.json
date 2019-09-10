@@ -31,13 +31,15 @@
   ],
   "build": {
     "env": {
-      "NODE_ENV": "dev",
+      "NODE_ENV": "production",
+      "APP_ENV": "development",
       "API_URL": "http://dev-api.mywebsite.com",
       "BASIC_AUTH": "enabled"
     }
   },
   "env": {
-    "NODE_ENV": "dev",
+    "NODE_ENV": "production",
+    "APP_ENV": "development",
     "API_URL": "http://dev-api.mywebsite.com",
     "BASIC_AUTH": "enabled"
   }

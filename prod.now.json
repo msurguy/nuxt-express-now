@@ -8,7 +8,7 @@
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder@0.16.3",
+      "use": "@nuxtjs/now-builder",
       "config": {
         "serverFiles": [
           "./server/**/*",
@@ -33,12 +33,14 @@
   "build": {
     "env": {
       "NODE_ENV": "production",
+      "APP_ENV": "production",
       "API_URL": "http://prod-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
   },
   "env": {
     "NODE_ENV": "production",
+    "APP_ENV": "production",
     "API_URL": "http://prod-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }
