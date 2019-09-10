@@ -29,11 +29,14 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/reset.css'
+    '@/assets/reset.css',
+    '@/assets/styles.scss'
   ],
   styleResources: {
     scss: [
-      '~/assets/styles.scss'
+      '~/assets/_mixins.scss',
+      '~/assets/_variables.scss',
+      '~/assets/_animations.scss'
     ]
   },
   /*
