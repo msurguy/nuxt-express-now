@@ -1,0 +1,17 @@
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *'
+
+name: Prune Now Deployments
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prune
+        uses: msurguy/zeit-now@master
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+        with:
+          # make sure to replace nuxt-express-now with your app name on Now
+          args: "rm nuxt-express-now --safe"
