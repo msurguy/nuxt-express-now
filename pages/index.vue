@@ -2,19 +2,20 @@
   <div class="container">
     <div>
       <logo></logo>
-      <h1>
+      <h1 class="header">
         nuxt-express-now
       </h1>
+      <p>Demo project for automated Nuxt.js + Express deployment to Now via Github actions</p>
       <h2>
-        You are on {{ app_env }}
+        You are on <b>{{ app_env }}</b>
       </h2>
-      <h3>NODE ENV: {{ node_env }}</h3>
-      <h3>API URL: {{ apiURL }}</h3>
+      <p>NODE ENV: {{ node_env }}</p>
+      <p>API URL: {{ apiURL }}</p>
+      <p>See this URL to check Node response: <a href="/api/users">/api/users</a></p>
       <div class="links">
         <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">
+          href="https://github.com/msurguy/nuxt-express-now"
+          target="_blank">
           GitHub
         </a>
       </div>
@@ -39,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -47,6 +48,25 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  h2 {
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  p {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  a {
+    color: $blue;
+  }
+}
+
+.header {
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .links {
