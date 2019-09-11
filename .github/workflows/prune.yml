@@ -15,3 +15,4 @@ jobs:
         with:
           # make sure to replace nuxt-express-now with your app name on Now
           args: "rm nuxt-express-now --safe --yes"
+        continue-on-error: true
