@@ -14,4 +14,4 @@ jobs:
       env:
         ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
       with:
-        args: "--local-config=./staging.now.json"
+        args: "--local-config=./staging.now.json && now alias -A ./staging.now.json"
