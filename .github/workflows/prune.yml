@@ -14,4 +14,4 @@ jobs:
           ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
         with:
           # make sure to replace nuxt-express-now with your app name on Now
-          args: "rm nuxt-express-now --safe"
+          args: "rm nuxt-express-now --safe --yes"
