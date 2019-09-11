@@ -21,6 +21,8 @@ The project:
 
 ## Assumptions
 
+- The default branch is `staging`. All PRs in the project are made against that branch
+- When testing is done on staging and approved, PR is opened against `master`
 - When this project is automatically deployed via Now + Github integration (not through Github Action), it uses `now.json` as the config.
 
 ## Github Setup
