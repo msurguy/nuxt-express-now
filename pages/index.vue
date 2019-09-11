@@ -7,7 +7,7 @@
       </h1>
       <p>Demo project for automated Nuxt.js + Express deployment to Now via Github actions</p>
       <h2>
-        You are on <b>{{ app_env }}</b>
+        You are on this APP_ENV: <b>{{ app_env }}</b>
       </h2>
       <p>NODE ENV: {{ node_env }}</p>
       <p>API URL: {{ apiURL }}</p>
