@@ -11,7 +11,7 @@
       </h2>
       <p>NODE ENV: {{ node_env }}</p>
       <p>API URL: {{ apiURL }}</p>
-      <p>See this URL to check Node response: <a href="/api/users">/api/users</a> </p>
+      <p>See this URL to check Node response: <a href="/api/users">/api/users</a></p>
       <div class="links">
         <a
           href="https://github.com/msurguy/nuxt-express-now"
