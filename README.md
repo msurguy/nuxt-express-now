@@ -19,6 +19,26 @@ The project:
 - Uses basic auth that is conditionally enabled / disabled via env variable
 - Automatically trims old deployments (that are not aliased) once a week
 
+## Assumptions
+
+- When this project is automatically deployed via Now + Github integration (not through Github Action), it uses `now.json` as the config.
+
+## Github Setup
+
+If you fork this project, be sure to set up the following:
+
+- Zeit token
+- Proper variables in all `*.now.json` files, 
+- Branch protection rules
+
+Here are some screenshots to help you:
+
+Setting up secrets for Github Actions:
+![Secret](static/secret.png)
+
+Setting up protected branches:
+![Branch](static/branch.png)
+
 ## Build Setup
 
 ``` bash
