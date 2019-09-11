@@ -16,8 +16,8 @@ jobs:
       with:
         args: "--local-config=./prod.now.json"
     - name: alias
-        uses: msurguy/zeit-now@master
-        env:
-          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
-        with:
-          args: "alias -A ./prod.now.json"
+      uses: msurguy/zeit-now@master
+      env:
+        ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
+      with:
+        args: "alias -A ./prod.now.json"
