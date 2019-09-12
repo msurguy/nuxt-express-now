@@ -1,6 +1,6 @@
 {
   "name": "nuxt-express-now",
-  "version": "1.0.0",
+  "version": "prod-v1.0.10",
   "description": "Demo project for Nuxt / Express deployed on Now via GH Actions",
   "author": "Maks Surguy",
   "private": true,
