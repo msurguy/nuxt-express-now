@@ -18,18 +18,6 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/_nuxt/.+",
-      "headers": {
-        "cache-control": "s-maxage=31536000"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
   "build": {
     "env": {
       "NODE_ENV": "production",

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-express-now",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Demo project for Nuxt / Express deployed on Now via GH Actions",
   "author": "Maks Surguy",
   "private": true,
@@ -13,8 +13,7 @@
     "precommit": "npm run lint",
     "deploy-prod": "now -A prod.now.json && now alias -A prod.now.json",
     "deploy-staging": "now -A staging.now.json && now alias -A staging.now.json",
-    "deploy-dev": "now -A dev.now.json && now alias -A dev.now.json",
-    "postversion": "git push && git push --tags"
+    "deploy-dev": "now -A dev.now.json && now alias -A dev.now.json"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
