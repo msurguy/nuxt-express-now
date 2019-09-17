@@ -27,7 +27,7 @@ const createBump = ({
     }
     const getCurrentBranchName = () => {
       try {
-        return run('git rev-parse --abbrev HEAD').trim()
+        return run('git rev-parse --abbrev-ref HEAD').trim()
       } catch (error) {
         throw new UsageError('Git couldn\'t find current branch name')
       }
