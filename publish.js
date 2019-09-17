@@ -86,7 +86,7 @@ const createBump = ({
       const oldVersion = packageJson.version
 
       // Update package.json & package-lock.json with a new version.
-      const newStableVersion = packageJson.version = semver.inc(oldVersion, releaseSuffix, releaseType)
+      const newStableVersion = packageJson.version = semver.inc(oldVersion, releaseType)
       console.log(newStableVersion)
       writePackageJson(packageJson)
 
@@ -98,14 +98,14 @@ const createBump = ({
 
       // Bump to a new pre-release version but only if the version to publish is not
       // itself a pre-release; otherwise semver gets confused.
-      // if (!isPrerelease) {
-      //   const newVersion = `${semver.inc(packageJson.version, 'patch')}-pre`
-      //
-      //   packageJson.version = newVersion
-      //   writePackageJson(packageJson)
-      //   run(`git add ${quote(getPackageJsonPath())}`)
-      //   run(`git commit -m ${quote(`${prefix} Bump to ${packageJson.version}`)}`)
-      // }
+      if (!isPrerelease) {
+        const newVersion = `${semver.inc(packageJson.version, 'patch')}${releaseSuffix}`
+
+        packageJson.version = newVersion
+        writePackageJson(packageJson)
+        run(`git add ${quote(getPackageJsonPath())}`)
+        run(`git commit -m ${quote(`${prefix} Bump to ${packageJson.version}`)}`)
+      }
 
       const revertChanges = () => {
         run(`git tag -d ${quote(newStableVersion)}`)
