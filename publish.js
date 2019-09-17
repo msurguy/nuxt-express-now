@@ -25,10 +25,17 @@ const createBump = ({
       process.exitCode = 1
       return
     }
+
+    const getRootPath = () => run('git rev-parse --show-cdup').trim()
+    const getPackageJsonPath = () => path.join(process.cwd(), `${getRootPath()}package.json`)
+    const quote = string => shellQuote.quote([string])
+    const run = (command, options) => execSync(command, { encoding: 'utf8', ...options })
+    
     const getCurrentBranchName = () => {
       try {
         return run('git rev-parse --abbrev-ref HEAD').trim()
       } catch (error) {
+        console.log(error)
         throw new UsageError('Git couldn\'t find current branch name')
       }
     }
@@ -59,10 +66,7 @@ const createBump = ({
       }
     }
 
-    const getRootPath = () => run('git rev-parse --show-cdup').trim()
-    const getPackageJsonPath = () => path.join(process.cwd(), `${getRootPath()}package.json`)
-    const quote = string => shellQuote.quote([string])
-    const run = (command, options) => execSync(command, { encoding: 'utf8', ...options })
+
     const writePackageJson = configObject =>
       fs.writeFileSync(getPackageJsonPath(),
         `${JSON.stringify(configObject, null, 2)}\n`)
