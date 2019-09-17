@@ -84,10 +84,12 @@ const createBump = ({
         `${JSON.stringify(configObject, null, 2)}\n`)
     const doBump = () => {
       const nowConfig = require(getNowConfigPath())
-      const oldVersion = nowConfig.build.env.APP_VERSION
+      const oldVersion = nowConfig.build.env.APP_VERSION.replace(`-${releaseSuffix}`, '')
 
       // Create identifier like 1.0.0-staging or 1.0.0-prod
-      const newStableVersion = nowConfig.build.env.APP_VERSION = nowConfig.env.APP_VERSION = `${semver.inc(oldVersion, releaseType)}-${releaseSuffix}`
+      const newStableVersion = `${semver.inc(oldVersion, releaseType)}-${releaseSuffix}`
+      nowConfig.build.env.APP_VERSION = newStableVersion
+      nowConfig.env.APP_VERSION = newStableVersion
       // Add alias of the new version in case we need to revert
       nowConfig.alias[1] = nowConfig.alias[0].replace(releaseSuffix, newStableVersion)
       writePackageJson(nowConfig)
