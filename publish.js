@@ -91,9 +91,11 @@ const createBump = ({
       const newStableVersion = `${semver.inc(oldVersionForSemVer, releaseType)}-${releaseSuffix}`
       nowConfig.build.env.APP_VERSION = newStableVersion
       nowConfig.env.APP_VERSION = newStableVersion
+
       // Add alias of the new version in case we need to revert
-      const versionForAlias = newStableVersion.replace('.', '-')
+      const versionForAlias = newStableVersion.replace(/\./g, '-')
       nowConfig.alias[1] = nowConfig.alias[0].replace(releaseSuffix, versionForAlias)
+
       writePackageJson(nowConfig)
 
       // Tag a new release.
