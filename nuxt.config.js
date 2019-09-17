@@ -50,7 +50,8 @@ module.exports = {
   env: {
     NODE_ENV: process.env.NODE_ENV,
     APP_ENV: process.env.APP_ENV,
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
+    APP_VERSION: process.env.APP_VERSION
   },
   /*
   ** Plugins to load before mounting the App
