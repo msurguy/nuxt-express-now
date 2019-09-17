@@ -11,6 +11,7 @@
       </h2>
       <p>NODE ENV: {{ node_env }}</p>
       <p>API URL: {{ apiURL }}</p>
+      <p>APP Version: {{ appVersion }}</p>
       <p>See this URL to check Node response: <a href="/api/users">/api/users</a></p>
       <div class="links">
         <a
@@ -34,7 +35,8 @@ export default {
     return {
       node_env: process.env.NODE_ENV,
       app_env: process.env.APP_ENV,
-      apiURL: process.env.API_URL
+      apiURL: process.env.API_URL,
+      appVersion: process.env.APP_VERSION
     }
   }
 }
