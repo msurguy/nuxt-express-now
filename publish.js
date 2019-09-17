@@ -51,11 +51,11 @@ const createBump = ({
       throw new UsageError('You need to be on master or staging branch to release')
     }
 
-    const getNowConfigPath = () => path.join(process.cwd(), `${getRootPath()}${getReleaseType()}.now.json`)
-
     const isPrerelease = !['major', 'minor', 'patch'].includes(releaseType)
     const branch = getCurrentBranchName()
     const releaseSuffix = getReleaseType(branch)
+    const getNowConfigPath = () => path.join(process.cwd(), `${getRootPath()}${releaseSuffix}.now.json`)
+
     const getHashFor = branchName => {
       try {
         return run(`git rev-parse --verify ${quote(branchName)}`).trim()
