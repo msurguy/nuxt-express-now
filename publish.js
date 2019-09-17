@@ -55,7 +55,6 @@ const createBump = ({
     const isPrerelease = !['major', 'minor', 'patch'].includes(releaseType)
     const branch = getCurrentBranchName()
     const releaseSuffix = getReleaseType(branch)
-
     const getHashFor = branchName => {
       try {
         return run(`git rev-parse --verify ${quote(branchName)}`).trim()
@@ -79,7 +78,6 @@ const createBump = ({
       }
     }
 
-
     const writePackageJson = configObject =>
       fs.writeFileSync(getPackageJsonPath(),
         `${JSON.stringify(configObject, null, 2)}\n`)
@@ -89,7 +87,7 @@ const createBump = ({
 
       // Update package.json & package-lock.json with a new version.
       const newStableVersion = packageJson.version = semver.inc(oldVersion, releaseSuffix, releaseType)
-
+      console.log(newStableVersion)
       writePackageJson(packageJson)
 
       // Tag a new release.
