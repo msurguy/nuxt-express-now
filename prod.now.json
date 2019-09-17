@@ -4,7 +4,10 @@
   "github": {
     "autoAlias": false
   },
-  "alias": ["nuxt-express-now-prod.now.sh"],
+  "alias": [
+    "nuxt-express-now-prod.now.sh",
+    "nuxt-express-now-1.0.0-prod.now.sh"
+  ],
   "builds": [
     {
       "src": "nuxt.config.js",
