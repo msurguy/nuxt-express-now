@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/* eslint-disable no-process-exit */
+
+const minimist = require('minimist');
+const publish = require('./publish.js');
+
+const opts = minimist(process.argv.slice(2), {
+    alias: {
+        // Configuration
+        r: 'remote',
+        b: 'branch',
+        p: 'prefix',
+        t: 'type',
+
+        // Miscellaneous
+        h: 'help'
+    },
+    default: {
+        remote: 'origin',
+        branch: 'master',
+    },
+});
+
+if (opts.help) {
+    console.log(`
+USAGE:
+    publish release-type [options]
+
+where release-type can be major, minor, patch or a custom name
+
+Configuration:
+    -r, --remote    The remote name to push to, origin by default
+    -b, --branch    The branch name to push, master by default
+    -p, --prefix    The prefix
+    -t, --type      An alternative way to pass the release type (as described above)
+
+Miscellaneous:
+    -h, --help      Display this help
+`);
+    process.exit(0);
+}
+
+try {
+    publish.custom({
+        remote: opts.remote || opts._[1],
+        branch: opts.branch || opts._[2],
+        prefix: opts.prefix,
+    })(opts.type || opts._[0]);
+} catch (error) {
+    if (error.name === 'UsageError') {
+        console.error(error.message);
+    } else {
+        throw error;
+    }
+}
