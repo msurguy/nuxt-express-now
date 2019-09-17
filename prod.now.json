@@ -4,7 +4,7 @@
   "github": {
     "autoAlias": false
   },
-  "alias": "nuxt-express-now-prod.now.sh",
+  "alias": ["nuxt-express-now-prod.now.sh"],
   "builds": [
     {
       "src": "nuxt.config.js",
@@ -12,8 +12,7 @@
       "config": {
         "serverFiles": [
           "./server/**/*",
-          "./constants.js",
-          "./package.json"
+          "./constants.js"
         ]
       }
     }
@@ -22,6 +21,7 @@
     "env": {
       "NODE_ENV": "production",
       "APP_ENV": "production",
+      "APP_VERSION": "1.0.0-prod",
       "API_URL": "http://prod-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
@@ -29,6 +29,7 @@
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "production",
+    "APP_VERSION": "1.0.0-prod",
     "API_URL": "http://prod-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }

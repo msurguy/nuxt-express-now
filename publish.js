@@ -27,7 +27,6 @@ const createBump = ({
     }
 
     const getRootPath = () => run('git rev-parse --show-cdup').trim()
-    const getPackageJsonPath = () => path.join(process.cwd(), `${getRootPath()}package.json`)
     const quote = string => shellQuote.quote([string])
     const run = (command, options) => execSync(command, { encoding: 'utf8', ...options })
 
@@ -42,15 +41,17 @@ const createBump = ({
 
     const getReleaseType = (currentBranch) => {
       if (currentBranch === 'master') {
-        return '-prod'
+        return 'prod'
       }
 
       if (currentBranch === 'staging') {
-        return '-staging'
+        return 'staging'
       }
 
       throw new UsageError('You need to be on master or staging branch to release')
     }
+
+    const getNowConfigPath = () => path.join(process.cwd(), `${getRootPath()}${getReleaseType}.now.json`)
 
     const isPrerelease = !['major', 'minor', 'patch'].includes(releaseType)
     const branch = getCurrentBranchName()
@@ -79,19 +80,21 @@ const createBump = ({
     }
 
     const writePackageJson = configObject =>
-      fs.writeFileSync(getPackageJsonPath(),
+      fs.writeFileSync(getNowConfigPath(),
         `${JSON.stringify(configObject, null, 2)}\n`)
     const doBump = () => {
-      const packageJson = require(getPackageJsonPath())
-      const oldVersion = packageJson.version
+      const nowConfig = require(getNowConfigPath())
+      const oldVersion = nowConfig.build.env.APP_VERSION
 
-      // Update package.json & package-lock.json with a new version.
-      const newStableVersion = packageJson.version = `${semver.inc(oldVersion, releaseType)}${releaseSuffix}`
-      writePackageJson(packageJson)
+      // Create identifier like 1.0.0-staging or 1.0.0-prod
+      const newStableVersion = nowConfig.build.env.APP_VERSION = nowConfig.env.APP_VERSION = `${semver.inc(oldVersion, releaseType)}-${releaseSuffix}`
+      // Add alias of the new version in case we need to revert
+      nowConfig.alias[1] = nowConfig.alias[0].replace(releaseSuffix, newStableVersion)
+      writePackageJson(nowConfig)
 
       // Tag a new release.
       console.log(`Version bumped from ${oldVersion} to ${newStableVersion}`)
-      run(`git add ${quote(getPackageJsonPath())}`)
+      run(`git add ${quote(getNowConfigPath())}`)
       run(`git commit -m ${quote(`${prefix} Tag ${newStableVersion}`)}`)
       run(`git tag ${quote(newStableVersion)}`)
 
@@ -102,7 +105,7 @@ const createBump = ({
 
       // packageJson.version = newVersion
       // writePackageJson(packageJson)
-      // run(`git add ${quote(getPackageJsonPath())}`)
+      // run(`git add ${quote(getNowConfigPath())}`)
       // run(`git commit -m ${quote(`${prefix} Bump to ${packageJson.version}`)}`)
       // }
 
