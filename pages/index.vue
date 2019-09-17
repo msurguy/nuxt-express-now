@@ -36,7 +36,7 @@ export default {
       node_env: process.env.NODE_ENV,
       app_env: process.env.APP_ENV,
       apiURL: process.env.API_URL,
-      appVersion: process.env.appVersion
+      appVersion: process.env.APP_VERSION
     }
   }
 }
