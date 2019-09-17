@@ -4,7 +4,10 @@
   "github": {
     "autoAlias": false
   },
-  "alias": "nuxt-express-now-staging.now.sh",
+  "alias": [
+    "nuxt-express-now-staging.now.sh",
+    "nuxt-express-now-1.0.0-staging.now.sh"
+  ],
   "builds": [
     {
       "src": "nuxt.config.js",
@@ -17,22 +20,11 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/_nuxt/.+",
-      "headers": {
-        "cache-control": "s-maxage=31536000"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
-  ],
   "build": {
     "env": {
       "NODE_ENV": "production",
       "APP_ENV": "staging",
+      "APP_VERSION": "1.0.0-staging",
       "API_URL": "http://staging-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
@@ -40,6 +32,7 @@
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "staging",
+    "APP_VERSION": "1.0.0-staging",
     "API_URL": "http://staging-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }
