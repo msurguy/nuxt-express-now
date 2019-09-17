@@ -46,7 +46,7 @@ const createBump = ({
       }
 
       if (currentBranch === 'staging') {
-        return '-prod'
+        return '-staging'
       }
 
       throw new UsageError('You need to be on master or staging branch to release')
@@ -87,7 +87,6 @@ const createBump = ({
 
       // Update package.json & package-lock.json with a new version.
       const newStableVersion = packageJson.version = `${semver.inc(oldVersion, releaseType)}${releaseSuffix}`
-      console.log(newStableVersion)
       writePackageJson(packageJson)
 
       // Tag a new release.
