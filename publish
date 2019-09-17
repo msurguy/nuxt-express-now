@@ -11,7 +11,6 @@ const opts = minimist(process.argv.slice(2), {
     alias: {
         // Configuration
         r: 'remote',
-        b: 'branch',
         p: 'prefix',
         t: 'type',
 
@@ -19,8 +18,7 @@ const opts = minimist(process.argv.slice(2), {
         h: 'help'
     },
     default: {
-        remote: 'origin',
-        branch: 'master',
+        remote: 'origin'
     },
 });
 
@@ -33,7 +31,6 @@ where release-type can be major, minor, patch or a custom name
 
 Configuration:
     -r, --remote    The remote name to push to, origin by default
-    -b, --branch    The branch name to push, master by default
     -p, --prefix    The prefix
     -t, --type      An alternative way to pass the release type (as described above)
 
@@ -46,7 +43,6 @@ Miscellaneous:
 try {
     publish.custom({
         remote: opts.remote || opts._[1],
-        branch: opts.branch || opts._[2],
         prefix: opts.prefix,
     })(opts.type || opts._[0]);
 } catch (error) {

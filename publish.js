@@ -9,7 +9,6 @@ const shellQuote = require('shell-quote')
 
 const createBump = ({
   remoteName = 'origin',
-  branch = 'master',
   prefix = ''
 } = {}) => {
   const UsageError = class extends Error {
@@ -26,8 +25,16 @@ const createBump = ({
       process.exitCode = 1
       return
     }
+    const getCurrentBranchName = () => {
+      try {
+        return run('git rev-parse --abbrev HEAD').trim()
+      } catch (error) {
+        throw new UsageError('Git couldn\'t find current branch name')
+      }
+    }
 
     const isPrerelease = !['major', 'minor', 'patch'].includes(releaseType)
+    const branch = getCurrentBranchName()
 
     const getHashFor = branchName => {
       try {
