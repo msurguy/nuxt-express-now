@@ -30,7 +30,7 @@ const createBump = ({
     const getPackageJsonPath = () => path.join(process.cwd(), `${getRootPath()}package.json`)
     const quote = string => shellQuote.quote([string])
     const run = (command, options) => execSync(command, { encoding: 'utf8', ...options })
-    
+
     const getCurrentBranchName = () => {
       try {
         return run('git rev-parse --abbrev-ref HEAD').trim()
