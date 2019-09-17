@@ -92,7 +92,8 @@ const createBump = ({
       nowConfig.build.env.APP_VERSION = newStableVersion
       nowConfig.env.APP_VERSION = newStableVersion
       // Add alias of the new version in case we need to revert
-      nowConfig.alias[1] = nowConfig.alias[0].replace(releaseSuffix, newStableVersion)
+      const versionForAlias = newStableVersion.replace('.', '-')
+      nowConfig.alias[1] = nowConfig.alias[0].replace(releaseSuffix, versionForAlias)
       writePackageJson(nowConfig)
 
       // Tag a new release.

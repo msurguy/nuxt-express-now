@@ -5,8 +5,7 @@
     "autoAlias": false
   },
   "alias": [
-    "nuxt-express-now-staging.now.sh",
-    "nuxt-express-now-1.0.2-staging.now.sh"
+    "nuxt-express-now-staging.now.sh"
   ],
   "builds": [
     {
