@@ -51,7 +51,7 @@ const createBump = ({
       throw new UsageError('You need to be on master or staging branch to release')
     }
 
-    const getNowConfigPath = () => path.join(process.cwd(), `${getRootPath()}${getReleaseType}.now.json`)
+    const getNowConfigPath = () => path.join(process.cwd(), `${getRootPath()}${getReleaseType()}.now.json`)
 
     const isPrerelease = !['major', 'minor', 'patch'].includes(releaseType)
     const branch = getCurrentBranchName()
