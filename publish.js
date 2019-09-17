@@ -106,9 +106,6 @@ const createBump = ({
             run(`git checkout ${quote(newStableVersion)}`, {
               stdio: [process.stdin, process.stdout, 'ignore']
             })
-            run(`npm publish ${quote(getRootPath())}${
-              isPrerelease ? ` --tag ${quote(releaseType)}` : ''}`
-            )
             run(`git push ${quote(remoteName)} ${quote(newStableVersion)}`)
 
             // Push the latest commit.
