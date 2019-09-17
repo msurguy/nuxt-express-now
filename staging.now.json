@@ -6,7 +6,7 @@
   },
   "alias": [
     "nuxt-express-now-staging.now.sh",
-    "nuxt-express-now-1.0.1-staging.now.sh"
+    "nuxt-express-now-1.0.2-staging.now.sh"
   ],
   "builds": [
     {
@@ -24,7 +24,7 @@
     "env": {
       "NODE_ENV": "production",
       "APP_ENV": "staging",
-      "APP_VERSION": "1.0.1-staging",
+      "APP_VERSION": "1.0.2-staging",
       "API_URL": "http://staging-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
@@ -32,7 +32,7 @@
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "staging",
-    "APP_VERSION": "1.0.1-staging",
+    "APP_VERSION": "1.0.2-staging",
     "API_URL": "http://staging-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }
