@@ -6,7 +6,7 @@
   },
   "alias": [
     "nuxt-express-now-prod.now.sh",
-    "nuxt-express-now-1-0-2-prod.now.sh"
+    "nuxt-express-now-1-0-3-prod.now.sh"
   ],
   "builds": [
     {
@@ -24,7 +24,7 @@
     "env": {
       "NODE_ENV": "production",
       "APP_ENV": "production",
-      "APP_VERSION": "1.0.2-prod",
+      "APP_VERSION": "1.0.3-prod",
       "API_URL": "http://prod-api.mywebsite.com",
       "BASIC_AUTH": "disabled"
     }
@@ -32,7 +32,7 @@
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "production",
-    "APP_VERSION": "1.0.2-prod",
+    "APP_VERSION": "1.0.3-prod",
     "API_URL": "http://prod-api.mywebsite.com",
     "BASIC_AUTH": "disabled"
   }
