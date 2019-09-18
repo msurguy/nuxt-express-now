@@ -22,13 +22,15 @@
       "NODE_ENV": "production",
       "APP_ENV": "staging",
       "API_URL": "http://staging-api.mywebsite.com",
-      "BASIC_AUTH": "disabled"
+      "BASIC_AUTH": "disabled",
+      "APP_VERSION": "dev"
     }
   },
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "staging",
     "API_URL": "http://staging-api.mywebsite.com",
-    "BASIC_AUTH": "disabled"
+    "BASIC_AUTH": "disabled",
+    "APP_VERSION": "dev"
   }
 }

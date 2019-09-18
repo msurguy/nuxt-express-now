@@ -22,13 +22,15 @@
       "NODE_ENV": "production",
       "APP_ENV": "development",
       "API_URL": "http://dev-api.mywebsite.com",
-      "BASIC_AUTH": "enabled"
+      "BASIC_AUTH": "enabled",
+      "APP_VERSION": "dev"
     }
   },
   "env": {
     "NODE_ENV": "production",
     "APP_ENV": "development",
     "API_URL": "http://dev-api.mywebsite.com",
-    "BASIC_AUTH": "enabled"
+    "BASIC_AUTH": "enabled",
+    "APP_VERSION": "dev"
   }
 }
