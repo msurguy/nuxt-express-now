@@ -1,4 +1,4 @@
-# nuxt-express-now
+# Nuxt Express Now
 
 > Github Automated Nuxt + Express + Now deployments
 
