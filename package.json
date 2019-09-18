@@ -13,7 +13,10 @@
     "precommit": "npm run lint",
     "deploy-prod": "now -A prod.now.json && now alias -A prod.now.json",
     "deploy-staging": "now -A staging.now.json && now alias -A staging.now.json",
-    "deploy-dev": "now -A dev.now.json && now alias -A dev.now.json"
+    "deploy-dev": "now -A dev.now.json && now alias -A dev.now.json",
+    "publish-patch": "./publish patch",
+    "publish-minor": "./publish minor",
+    "publish-major": "./publish major"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
