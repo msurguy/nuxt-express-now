@@ -48,7 +48,7 @@
     "eslint-plugin-vue": "^5.2.2",
     "inquirer": "^7.0.0",
     "minimist": "^1.2.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "nodemon": "^1.18.9",
     "sass-loader": "^7.1.0",
     "semver": "^6.3.0",
